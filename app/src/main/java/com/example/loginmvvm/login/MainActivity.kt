@@ -1,6 +1,7 @@
 package com.example.loginmvvm.login
 
 import android.os.Bundle
+import android.view.View
 import com.example.loginmvvm.R
 import com.example.loginmvvm.base.BaseActivity
 import com.example.loginmvvm.databinding.MainActivityBinding
@@ -13,6 +14,12 @@ class MainActivity : BaseActivity<MainActivityVM, MainActivityBinding>(R.layout.
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+    }
+
+    fun onLoginButtonPressed(v: View) {
+        val email = viewModel.emailLiveData.value.toString()
+        val password = viewModel.passwordLiveData.value.toString()
+        viewModel.login(email, password)
     }
 
 }
